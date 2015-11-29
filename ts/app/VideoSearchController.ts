@@ -32,7 +32,7 @@ module app {
     }
 
     public trustSrc(src) {
-      return this.$sce.trustAsResourceUrl("http://www.youtube.com/embed/" + src)
+      return this.$sce.trustAsResourceUrl("https://www.youtube.com/embed/" + src)
     }
 
     private search() {

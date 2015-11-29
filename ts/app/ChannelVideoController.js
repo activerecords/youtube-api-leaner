@@ -22,7 +22,7 @@ var app;
             this.videoItemList = [];
         }
         ChannelVideoController.prototype.trustSrc = function (src) {
-            return this.$sce.trustAsResourceUrl("http://www.youtube.com/embed/" + src);
+            return this.$sce.trustAsResourceUrl("https://www.youtube.com/embed/" + src);
         };
         ChannelVideoController.prototype.next = function () {
             var _this = this;

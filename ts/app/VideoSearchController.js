@@ -21,7 +21,7 @@ var app;
             this.videoItemList = [];
         }
         VideoSearchController.prototype.trustSrc = function (src) {
-            return this.$sce.trustAsResourceUrl("http://www.youtube.com/embed/" + src);
+            return this.$sce.trustAsResourceUrl("https://www.youtube.com/embed/" + src);
         };
         VideoSearchController.prototype.search = function () {
             var _this = this;
