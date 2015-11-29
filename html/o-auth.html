@@ -1,0 +1,15 @@
+<uib-tabset>
+  <uib-tab heading="タブ1">
+    {{app.messageAuth}}
+    <input type="button" ng-show="app.isVisibleAuth" value="クリックでOAuth認証ができます" ng-click="app.handleAuthClick()">
+  </uib-tab>
+  <uib-tab heading="タブ2">
+    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> OK</button>
+    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> 検索</button>
+    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-zoom-in"></i> 拡大</button>
+    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-cog"></i> 設定</button>
+    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> 印刷</button>
+  </uib-tab>
+  <uib-tab heading="タブ3">
+  </uib-tab>
+</uib-tabset>

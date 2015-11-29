@@ -1,0 +1,77 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      動画キーワード検索
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="videoSearch.searchWords">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="videoSearch.search()"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </div>
+
+    表示順序
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true">
+        Dropdown
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    表示件数
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">10</button>
+      <button type="button" class="btn btn-default">20</button>
+      <button type="button" class="btn btn-default">30</button>
+      <button type="button" class="btn btn-default">40</button>
+      <button type="button" class="btn btn-default">50</button>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      検索結果
+    </div>
+  </div>
+  <div class="panel-body">
+    <button type="button" class="btn btn-default" ng-show="videoSearch.prevPageToken != null" ng-click="videoSearch.prev()">前へ</button>
+    表示範囲:{{videoSearch.maxResults * videoSearch.pageNumber + 1}} - {{videoSearch.maxResults * videoSearch.pageNumber + videoSearch.videoItemList.length}}
+    <button type="button" class="btn btn-default" ng-show="videoSearch.nextPageToken != null" ng-click="videoSearch.next()">次へ</button>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>動画</th>
+          <th>サムネイル</th>
+          <th>タイトル</th>
+          <th>説明</th>
+          <th>投稿日時</th>
+          <th>リンク</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="videoItem in videoSearch.videoItemList" ng-click="location.href='http://www.youtube.com/watch?v={{videoItem.link}}'">
+          <td>{{videoItem.number}}</td>
+          <td><iframe ng-if="videoItem.isShow == true" title="YouTube video player" class="youtube-player" type="text/html" width="560" height="345" ng-src="{{videoSearch.trustSrc(videoItem.id)}}" frameborder="0"></iframe></td>
+          <td><img src="{{videoItem.image}}" ng-click="videoSearch.onSelectVideo(videoItem)"></td>
+          <td style="word-break:break-all;">{{videoItem.title}}</td>
+          <td style="word-break:break-all;">{{videoItem.description}}</td>
+          <td>{{videoItem.publishedAt}}</td>
+          <td><a href="http://www.youtube.com/watch?v={{videoItem.id}}" target="_blank">{{videoItem.id}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-default" ng-show="videoSearch.prevPageToken != null" ng-click="videoSearch.prev()">前へ</button>
+    <button type="button" class="btn btn-default" ng-show="videoSearch.nextPageToken != null" ng-click="videoSearch.next()">次へ</button>
+  </div>
+</div>

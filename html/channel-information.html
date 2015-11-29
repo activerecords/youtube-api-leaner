@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      チャンネル情報取得
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="channelInformation.idChannel">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="channelInformation.getChannel()"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      取得結果
+    </div>
+  </div>
+  <div class="panel-body">
+    <div>
+      Country: {{channelInformation.channelItem.country}}
+    </div>
+    <div>
+      Description: {{channelInformation.channelItem.description}}
+    </div>
+    <div>
+      PublishedAt: {{channelInformation.channelItem.publishedAt}}
+    </div>
+    <div>
+      Title: {{channelInformation.channelItem.title}}
+    </div>
+    <div>
+      <img src="{{channelInformation.channelItem.thumbnail_default}}">
+    </div>
+    <div>
+      <img src="{{channelInformation.channelItem.thumbnail_high}}">
+    </div>
+    <div>
+      <img src="{{channelInformation.channelItem.thumbnail_medium}}">
+    </div>
+  </div>
+</div>
