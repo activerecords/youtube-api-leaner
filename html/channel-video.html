@@ -55,7 +55,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="videoItem in channelVideo.videoItemList" ng-click="location.href='http://www.youtube.com/watch?v={{videoItem.link}}'">
+        <tr ng-repeat="videoItem in channelVideo.videoItemList" ng-click="location.href='https://www.youtube.com/watch?v={{videoItem.link}}'">
           <td>{{videoItem.number}}</td>
           <td><iframe ng-if="videoItem.isShow == true" title="YouTube video player" class="youtube-player" type="text/html" width="560" height="345" ng-src="{{channelVideo.trustSrc(videoItem.id)}}" frameborder="0"></iframe></td>
           <td><img src="{{videoItem.image}}" ng-click="channelVideo.onSelectVideo(videoItem)"></td>
